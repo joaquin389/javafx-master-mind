@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 
 public class DialogueController {
@@ -39,33 +38,27 @@ public class DialogueController {
 
     public void setModeFin(boolean victoire) {
         estJeuFini = true;
-        if (timeline != null) {
-            timeline.stop();
-        }
+        if (timeline != null) timeline.stop();
 
         if (victoire) {
             dialogues = new String[]{
                     "Tu l'as fait... Tu as réussi à désamorcer la bombe et à sauver la ville. Je savais que tu en étais capable.",
-                    "Grâce à toi, des vies ont été sauvées aujourd'hui. Tu as fait preuve de courage, d'intelligence et de détermination dans chaque étape de cette mission. Tu as tout donné, et ça a payé.",
                     "Bien joué, vraiment. Tu as prouvé qu'il n'y a rien que tu ne puisses accomplir. Je n'oublierai jamais ce jour."
             };
         } else {
             dialogues = new String[]{
                     "Ok, t'es là ! Frérot, je vibre de partout, je te jure c'est pas une blague. Le compteur est à 10 secondes et j'ai une soudaine envie de dire que c'est moi qui ai rayé ta voiture l'été dernier !",
-                    "Vite ! Le code ! Taper le code ! C'est le moment de prouver que t'as pas que du vent entre les oreilles. On y est, le destin de ma peau (et de tes sourcils) est entre tes mains.",
+                    "Vite ! Le code ! Taper le code ! C'est le moment de prouver que t'as pas que du vent entre les oreilles.",
                     "Attend... pourquoi tu tapes \"1234\" ? C'est pas ça du tout ! Mais qu'est-ce que tu fai— Non ! Pas le bouton roug—",
                     "... Super. Franchement, t'es un génie. Je suis actuellement éparpillé sur trois quartiers différents. Je vais être en retard en cours, et c'est 100% de ta faute. Bravo l'artiste !"
             };
         }
-
         indexDialogue = 0;
         afficherTexteAnime();
     }
 
     private void afficherTexteAnime() {
-        if (timeline != null) {
-            timeline.stop();
-        }
+        if (timeline != null) timeline.stop();
         texteCourant = dialogues[indexDialogue];
         labelDialogue.setText("");
         indexChar = 0;
@@ -81,24 +74,24 @@ public class DialogueController {
     }
 
     @FXML
-    public void dialogueSuivant() throws IOException {
-        if (timeline != null && timeline.getStatus() == Timeline.Status.RUNNING) {
-            timeline.stop();
-            labelDialogue.setText(texteCourant);
-        } else {
-            indexDialogue++;
-            if (indexDialogue < dialogues.length) {
-                afficherTexteAnime();
+    public void dialogueSuivant() {
+        try {
+            if (timeline != null && timeline.getStatus() == Timeline.Status.RUNNING) {
+                timeline.stop();
+                labelDialogue.setText(texteCourant);
             } else {
-                if (estJeuFini) {
-                    System.out.println("Fin de la partie - Le menu de sauvegarde sera lancé ici");
-                } else {
+                indexDialogue++;
+                if (indexDialogue < dialogues.length) {
+                    afficherTexteAnime();
+                } else if (!estJeuFini) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("mastermind.fxml"));
                     Parent root = loader.load();
                     Stage stage = (Stage) labelDialogue.getScene().getWindow();
                     stage.setScene(new Scene(root, 600, 500));
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

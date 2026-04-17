@@ -1,11 +1,18 @@
 package com.example.javafxmastermindcontrole;
 
+import java.util.Random;
+
 public class MastermindModele {
     private int[] combinaisonSecrete;
     private int tentativesRestantes;
 
     public MastermindModele() {
-        this.combinaisonSecrete = new int[]{0, 1, 2, 3};
+        this.combinaisonSecrete = new int[4];
+        Random random = new Random();
+        // Génère 4 nombres aléatoires entre 0 (inclus) et 5 (exclu)
+        for (int i = 0; i < 4; i++) {
+            this.combinaisonSecrete[i] = random.nextInt(5);
+        }
         this.tentativesRestantes = 10;
     }
 

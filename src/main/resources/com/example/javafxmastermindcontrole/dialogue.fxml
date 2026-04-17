@@ -5,7 +5,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxmastermindcontrole.DialogueController">
+<VBox fx:id="rootPane" alignment="CENTER" spacing="20.0"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.javafxmastermindcontrole.DialogueController"
+      stylesheets="/styles/app.css"
+      onMouseClicked="#dialogueSuivant"
+      style="-fx-cursor: hand;">
 
     <ImageView fx:id="imageChef" fitWidth="200.0" preserveRatio="true">
         <image>
@@ -13,8 +18,9 @@
         </image>
     </ImageView>
 
-    <Label fx:id="labelDialogue" text="..." wrapText="true" style="-fx-font-size: 18px; -fx-padding: 20;"/>
+    <Label fx:id="labelDialogue" text="..." wrapText="true"
+           style="-fx-font-size: 18px; -fx-padding: 20; -fx-text-alignment: center;"/>
 
-    <Button text="Suivant" onAction="#dialogueSuivant"/>
+    <Button text="Suivant (ou clique n'importe où)" onAction="#dialogueSuivant"/>
 
 </VBox>
