@@ -34,8 +34,8 @@ public class DialogueController {
         estJeuFini = false;
         dialogues = new String[]{
                 "Mec... me regarde pas comme ça, mais je crois que j'ai un gros souci. Tu vois le bruit de tic-tac depuis le début du cours ? Bah c'est pas ma montre. C’est moi. Je suis littéralement devenu une bombe humaine.",
-                "Ne t'approche pas trop, je voudrais pas que tu finisses en confettis avant d'avoir fini ton DM. Je suis coincé avec ce truc sur le buffet, et si je stresse trop, le compteur s'affole. C'est à toi de résoudre les énigmes pour trouver le code de désactivation.",
-                "Je sais que d'habitude tu galères à trouver la réponse à \"2+2\", mais là, si tu te plantes, je vais repeindre les murs de la ville avec mon propre t-shirt. Pas de pression, hein, mais dépêche-toi !",
+                "Ne t'approche pas trop, je voudrais pas que tu finisses en confettis avant la cuite de demain. Je suis coincé avec ce truc, et si je stresse trop, le compteur s'affole. C'est à toi de résoudre les énigmes pour trouver le code de désactivation.",
+                "Je sais que d'habitude tu galères à trouver la réponse à \"2+2\", mais là, si tu te plantes, je vais repeindre les murs de la classe avec mon propre t-shirt. Pas de pression, hein, mais dépêche-toi !",
                 "Allez, trouve les indices, déchiffre les codes, et sors-moi de là. Si tu réussis, je te jure que je te laisse copier sur moi jusqu'à la fin de l'année... si je survis."
         };
         imagesActuelles = new String[]{
@@ -54,7 +54,7 @@ public class DialogueController {
 
         if (victoire) {
             dialogues = new String[]{
-                    "Tu l'as fait... Tu as réussi à désamorcer la bombe et à sauver la ville. Je savais que tu en étais capable.",
+                    "Tu l'as fait... Tu as réussi à désamorcer la bombe et à sauver la classe. Je savais que tu en étais capable.",
                     "Bien joué, vraiment. Tu as prouvé qu'il n'y a rien que tu ne puisses accomplir. Je n'oublierai jamais ce jour."
             };
             imagesActuelles = new String[]{
@@ -63,10 +63,10 @@ public class DialogueController {
             };
         } else {
             dialogues = new String[]{
-                    "Ok, t'es là ! Frérot, je vibre de partout, je te jure c'est pas une blague. Le compteur est à 10 secondes et j'ai une soudaine envie de dire que c'est moi qui ai rayé ta voiture l'été dernier !",
+                    "Ok, t'es là ! Frérot, je vibre de partout, je te jure c'est pas une blague. Le compteur est à 10 secondes",
                     "Vite ! Le code ! Taper le code ! C'est le moment de prouver que t'as pas que du vent entre les oreilles.",
                     "Attend... pourquoi tu tapes \"1234\" ? C'est pas ça du tout ! Mais qu'est-ce que tu fai— Non ! Pas le bouton roug—",
-                    "... Super. Franchement, t'es un génie. Je suis actuellement éparpillé sur trois quartiers différents. Je vais être en retard en cours, et c'est 100% de ta faute. Bravo l'artiste !"
+                    "... Super. Franchement, t'es un génie. Je suis actuellement mort. Et c'est 100% de ta faute. Bravo l'artiste !"
             };
             imagesActuelles = new String[]{
                     "cinquieme-chef.png",
