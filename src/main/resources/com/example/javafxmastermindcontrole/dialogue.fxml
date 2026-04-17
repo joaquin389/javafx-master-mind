@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxmastermindcontrole.DialogueController">
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+    <ImageView fx:id="imageChef" fitWidth="200.0" preserveRatio="true">
+        <image>
+            <Image url="@premier-chef.png"/>
+        </image>
+    </ImageView>
 
-</AnchorPane>
+    <Label fx:id="labelDialogue" text="..." wrapText="true" style="-fx-font-size: 18px; -fx-padding: 20;"/>
+
+    <Button text="Suivant" onAction="#dialogueSuivant"/>
+
+</VBox>
