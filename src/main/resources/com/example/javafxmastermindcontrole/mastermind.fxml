@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="30.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxmastermindcontrole.MastermindController" stylesheets="@../../styles/app.css">
+
+    <Label text="Mastermind" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <HBox alignment="CENTER" spacing="15.0">
+        <Button fx:id="btnCouleur0" styleClass="bouton-couleur" onAction="#changerCouleur0"/>
+        <Button fx:id="btnCouleur1" styleClass="bouton-couleur" onAction="#changerCouleur1"/>
+        <Button fx:id="btnCouleur2" styleClass="bouton-couleur" onAction="#changerCouleur2"/>
+        <Button fx:id="btnCouleur3" styleClass="bouton-couleur" onAction="#changerCouleur3"/>
+    </HBox>
+
+    <Button text="Valider" onAction="#validerProposition" style="-fx-padding: 8 20 8 20;"/>
+
+    <Label fx:id="labelTentatives" text="Tentatives restantes : 10"/>
+
+    <HBox alignment="CENTER" spacing="40.0">
+        <VBox alignment="CENTER" spacing="5.0">
+            <Label text="Bien placées"/>
+            <Label fx:id="labelBienPlacees" text="0"/>
+        </VBox>
+        <VBox alignment="CENTER" spacing="5.0">
+            <Label text="Bonnes couleurs"/>
+            <Label fx:id="labelBonnesCouleurs" text="0"/>
+        </VBox>
+    </HBox>
+
+</VBox>
