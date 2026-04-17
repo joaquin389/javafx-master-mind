@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.IOException;
@@ -16,7 +18,11 @@ public class DialogueController {
     @FXML
     private Label labelDialogue;
 
+    @FXML
+    private ImageView imageChef;
+
     private String[] dialogues;
+    private String[] imagesActuelles;
     private int indexDialogue;
     private Timeline timeline;
     private String texteCourant;
@@ -32,6 +38,12 @@ public class DialogueController {
                 "Je sais que d'habitude tu galères à trouver la réponse à \"2+2\", mais là, si tu te plantes, je vais repeindre les murs de la ville avec mon propre t-shirt. Pas de pression, hein, mais dépêche-toi !",
                 "Allez, trouve les indices, déchiffre les codes, et sors-moi de là. Si tu réussis, je te jure que je te laisse copier sur moi jusqu'à la fin de l'année... si je survis."
         };
+        imagesActuelles = new String[]{
+                "premier-chef.png",
+                "deuxieme-chef.png",
+                "troisieme-chef.png",
+                "quatrieme-chef.png"
+        };
         indexDialogue = 0;
         afficherTexteAnime();
     }
@@ -45,12 +57,22 @@ public class DialogueController {
                     "Tu l'as fait... Tu as réussi à désamorcer la bombe et à sauver la ville. Je savais que tu en étais capable.",
                     "Bien joué, vraiment. Tu as prouvé qu'il n'y a rien que tu ne puisses accomplir. Je n'oublierai jamais ce jour."
             };
+            imagesActuelles = new String[]{
+                    "neuvieme-chef.png",
+                    "neuvieme-chef.png"
+            };
         } else {
             dialogues = new String[]{
                     "Ok, t'es là ! Frérot, je vibre de partout, je te jure c'est pas une blague. Le compteur est à 10 secondes et j'ai une soudaine envie de dire que c'est moi qui ai rayé ta voiture l'été dernier !",
                     "Vite ! Le code ! Taper le code ! C'est le moment de prouver que t'as pas que du vent entre les oreilles.",
                     "Attend... pourquoi tu tapes \"1234\" ? C'est pas ça du tout ! Mais qu'est-ce que tu fai— Non ! Pas le bouton roug—",
                     "... Super. Franchement, t'es un génie. Je suis actuellement éparpillé sur trois quartiers différents. Je vais être en retard en cours, et c'est 100% de ta faute. Bravo l'artiste !"
+            };
+            imagesActuelles = new String[]{
+                    "cinquieme-chef.png",
+                    "cinquieme-chef.png",
+                    "septieme-chef.png",
+                    "huitieme-chef.png"
             };
         }
         indexDialogue = 0;
@@ -59,6 +81,10 @@ public class DialogueController {
 
     private void afficherTexteAnime() {
         if (timeline != null) timeline.stop();
+
+        String imagePath = getClass().getResource(imagesActuelles[indexDialogue]).toExternalForm();
+        imageChef.setImage(new Image(imagePath));
+
         texteCourant = dialogues[indexDialogue];
         labelDialogue.setText("");
         indexChar = 0;
